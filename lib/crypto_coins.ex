@@ -1,11 +1,6 @@
 defmodule CryptoCoins do
 
-  use Tesla
-
-    plug Tesla.Middleware.BaseUrl, "https://api.coinranking.com/v1/public"
-    plug Tesla.Middleware.Headers, [{"", ""}]
-    plug Tesla.Middleware.JSON
-
+  # Se importa la clase CryptoCoins.Api la cual trae de la api todos los coins
   require CryptoCoins.Api
 
   def coin(coins, name) when is_binary(name) do
