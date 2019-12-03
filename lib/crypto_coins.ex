@@ -23,13 +23,13 @@ defmodule CryptoCoins do
   def most_capped(coins) do
     # Obtiene la moneda con el precio más najo del array coins donde se encuetra cada coin, comparando con el precio
     # de cada coin convertido a float.
-    Enum.min_by(coins, fn coin -> Float.parse(Map.fetch!(coin, "price")) end)
+    Enum.max_by(coins, fn coin -> Map.fetch!(coin, "marketCap") end)
   end
 
   def most_ranked(coins) do
     # Obtiene la moneda con el rank menor del array coins donde se encuetra cada coin, comparando con el rank
     # de cada coin convertido a Intenger, se obtiene el menor ya que el rank más alto se considera el 1.
-    Enum.min_by(coins, fn coin -> Map.fetch!(coin, "rank") end)
+    Enum.max_by(coins, fn coin -> Map.fetch!(coin, "rank") end)
   end
 
   def sort_by(coins, field) do
